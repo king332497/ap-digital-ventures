@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="AP Digital Ventures menyediakan layanan pembuatan website, UI/UX, branding digital, dan solusi teknologi untuk bisnis.">
+  <meta name="theme-color" content="#5b21b6">
+  <title>AP Digital Ventures</title>
+  <style>
+    :root{
+      --bg:#f6f7fb;
+      --surface:#ffffff;
+      --text:#17152a;
+      --muted:#6d6880;
+      --line:#e8e5f1;
+      --primary:#5b21b6;
+      --primary-2:#7c3aed;
+      --accent:#f4c95d;
+      --success:#16845b;
+      --shadow:0 24px 70px rgba(38,24,72,.13);
+      --radius:24px;
+      --max:1120px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(circle at top left,rgba(124,58,237,.12),transparent 30%),
+        radial-gradient(circle at top right,rgba(244,201,93,.15),transparent 25%),
+        var(--bg);
+      line-height:1.65;
+    }
+    a{text-decoration:none;color:inherit}
+    .container{width:min(calc(100% - 32px),var(--max));margin:auto}
+    header{
+      position:sticky;top:0;z-index:20;
+      backdrop-filter:blur(18px);
+      background:rgba(246,247,251,.86);
+      border-bottom:1px solid rgba(232,229,241,.9);
+    }
+    nav{
+      min-height:74px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:24px;
+    }
+    .brand{display:flex;align-items:center;gap:12px;font-weight:800}
+    .logo{
+      width:46px;height:46px;border-radius:15px;
+      display:grid;place-items:center;color:#fff;font-weight:900;
+      background:linear-gradient(145deg,var(--primary),var(--primary-2));
+      box-shadow:0 12px 28px rgba(91,33,182,.28);
+    }
+    .links{display:flex;gap:24px;color:var(--muted);font-weight:650;font-size:14px}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;
+      min-height:48px;padding:0 20px;border-radius:14px;
+      background:linear-gradient(135deg,var(--primary),var(--primary-2));
+      color:#fff;font-weight:750;
+      box-shadow:0 14px 30px rgba(91,33,182,.24);
+    }
+    .hero{padding:96px 0 70px}
+    .hero-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:52px;align-items:center}
+    .eyebrow{
+      display:inline-flex;align-items:center;gap:8px;
+      padding:8px 12px;border-radius:999px;
+      color:var(--primary);background:#f0ebff;
+      font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:.04em;
+    }
+    h1{
+      font-size:clamp(44px,6vw,72px);
+      line-height:1.04;letter-spacing:-.055em;
+      margin:24px 0 18px;
+    }
+    .gradient{
+      background:linear-gradient(120deg,var(--primary),var(--primary-2),#a855f7);
+      -webkit-background-clip:text;background-clip:text;color:transparent;
+    }
+    .hero p{font-size:18px;color:var(--muted);max-width:650px}
+    .actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:30px}
+    .secondary{
+      display:inline-flex;align-items:center;justify-content:center;
+      min-height:48px;padding:0 20px;border-radius:14px;
+      background:#fff;border:1px solid var(--line);font-weight:750;
+    }
+    .visual{
+      min-height:460px;border-radius:30px;padding:24px;color:#fff;
+      background:linear-gradient(155deg,#21133f,#4b1c93 57%,#7c3aed);
+      box-shadow:0 36px 100px rgba(54,25,107,.32);
+      display:flex;flex-direction:column;justify-content:space-between;
+      overflow:hidden;position:relative;
+    }
+    .visual::after{
+      content:"";position:absolute;width:260px;height:260px;border-radius:50%;
+      right:-100px;top:-100px;background:rgba(255,255,255,.12);
+    }
+    .card{
+      position:relative;z-index:2;
+      padding:22px;border-radius:22px;
+      border:1px solid rgba(255,255,255,.18);
+      background:rgba(255,255,255,.09);
+      backdrop-filter:blur(18px);
+    }
+    .card-top{display:flex;justify-content:space-between;gap:16px;align-items:center}
+    .status{font-size:12px;padding:7px 10px;border-radius:999px;background:rgba(22,132,91,.22);color:#caffdf}
+    .metrics{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:22px}
+    .metric{padding:16px;border-radius:16px;background:rgba(255,255,255,.10)}
+    .metric small{display:block;color:rgba(255,255,255,.65)}
+    .metric strong{font-size:18px}
+    section{padding:82px 0}
+    .section-head{max-width:720px;margin-bottom:36px}
+    .section-head h2{font-size:clamp(32px,4vw,48px);line-height:1.12;letter-spacing:-.04em;margin:12px 0}
+    .section-head p{color:var(--muted);font-size:17px}
+    .services{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .service{
+      padding:28px;border-radius:22px;background:#fff;border:1px solid var(--line);
+      box-shadow:0 12px 38px rgba(40,27,67,.06);
+    }
+    .service h3{margin:0 0 10px}
+    .service p{margin:0;color:var(--muted)}
+    .contact{
+      display:grid;grid-template-columns:1.05fr .95fr;
+      border-radius:30px;overflow:hidden;background:#21133f;color:#fff;
+      box-shadow:var(--shadow);
+    }
+    .contact-copy{padding:44px}
+    .contact-copy h2{font-size:42px;line-height:1.12;letter-spacing:-.04em;margin:0 0 16px}
+    .contact-copy p{color:rgba(255,255,255,.72)}
+    .details{display:grid;gap:12px;margin-top:25px}
+    .contact-action{padding:36px;background:#fff;color:var(--text);display:flex;flex-direction:column;justify-content:center}
+    .contact-action p{color:var(--muted)}
+    footer{padding:34px 0;color:var(--muted);font-size:14px}
+    .footer-row{display:flex;justify-content:space-between;gap:20px;border-top:1px solid var(--line);padding-top:24px}
+    @media(max-width:900px){
+      .links{display:none}
+      .hero-grid,.contact{grid-template-columns:1fr}
+      .services{grid-template-columns:1fr 1fr}
+    }
+    @media(max-width:620px){
+      .container{width:min(calc(100% - 22px),var(--max))}
+      .hero{padding-top:58px}
+      h1{font-size:44px}
+      .actions{display:grid}
+      .btn,.secondary{width:100%}
+      .services{grid-template-columns:1fr}
+      .contact-copy,.contact-action{padding:26px}
+      .footer-row{flex-direction:column}
+    }
+  </style>
+</head>
+<body>
+<header>
+  <div class="container">
+    <nav>
+      <a class="brand" href="#beranda">
+        <span class="logo">AP</span>
+        <span>AP Digital Ventures</span>
+      </a>
+      <div class="links">
+        <a href="#layanan">Layanan</a>
+        <a href="#tentang">Tentang</a>
+        <a href="#kontak">Kontak</a>
+      </div>
+      <a class="btn" href="#kontak">Hubungi Kami</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero" id="beranda">
+    <div class="container hero-grid">
+      <div>
+        <span class="eyebrow">Digital Business Solutions</span>
+        <h1>Bangun bisnis yang <span class="gradient">lebih modern dan profesional.</span></h1>
+        <p>
+          AP Digital Ventures menyediakan layanan website, UI/UX, branding digital,
+          dan solusi teknologi untuk membantu bisnis berkembang secara terarah.
+        </p>
+        <div class="actions">
+          <a class="btn" href="#kontak">Konsultasi Sekarang</a>
+          <a class="secondary" href="#layanan">Lihat Layanan</a>
+        </div>
+      </div>
+
+      <div class="visual">
+        <div class="card">
+          <div class="card-top">
+            <div>
+              <strong>AP Digital Ventures</strong><br>
+              <small style="color:rgba(255,255,255,.65)">Business profile</small>
+            </div>
+            <span class="status">Aktif</span>
+          </div>
+          <div class="metrics">
+            <div class="metric"><small>Website</small><strong>Responsive</strong></div>
+            <div class="metric"><small>Desain</small><strong>Modern</strong></div>
+            <div class="metric"><small>Keamanan</small><strong>Best Practice</strong></div>
+            <div class="metric"><small>Dukungan</small><strong>Terarah</strong></div>
+          </div>
+        </div>
+        <div>
+          <small style="color:rgba(255,255,255,.65)">Fokus utama</small>
+          <h2 style="font-size:32px;line-height:1.15;margin:8px 0 0">Pengalaman digital yang jelas, cepat, dan mudah digunakan.</h2>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="layanan">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Layanan</span>
+        <h2>Solusi digital untuk kebutuhan bisnis.</h2>
+        <p>Layanan dapat dikembangkan sesuai skala dan kebutuhan operasional bisnis Anda.</p>
+      </div>
+      <div class="services">
+        <article class="service">
+          <h3>Pembuatan Website</h3>
+          <p>Website profil, landing page, dan antarmuka bisnis yang responsif dan mudah digunakan.</p>
+        </article>
+        <article class="service">
+          <h3>UI/UX Design</h3>
+          <p>Perancangan tampilan dan alur pengguna yang modern, konsisten, dan berorientasi pada tujuan bisnis.</p>
+        </article>
+        <article class="service">
+          <h3>Digital Branding</h3>
+          <p>Penyusunan identitas visual dan materi digital agar komunikasi bisnis terlihat lebih kredibel.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="tentang">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Tentang Kami</span>
+        <h2>AP Digital Ventures</h2>
+        <p>
+          AP Digital Ventures adalah usaha digital mandiri yang berfokus pada pembuatan website,
+          desain antarmuka, branding digital, dan pengembangan solusi teknologi.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="kontak">
+    <div class="container">
+      <div class="contact">
+        <div class="contact-copy">
+          <h2>Hubungi AP Digital Ventures</h2>
+          <p>Silakan hubungi kami untuk konsultasi awal mengenai kebutuhan digital bisnis Anda.</p>
+          <div class="details">
+            <div>📍 Talang Kepuh, Perumahan Sinar Agung, Palembang, Sumatera Selatan 30142</div>
+            <div>☎️ 0822-8000-0981</div>
+            <div>✉️ Email bisnis perlu ditambahkan</div>
+          </div>
+        </div>
+        <div class="contact-action">
+          <h3>Mulai konsultasi</h3>
+          <p>Tombol berikut terhubung ke nomor WhatsApp bisnis yang Anda berikan.</p>
+          <a class="btn" href="https://wa.me/6282280000981?text=Halo%20AP%20Digital%20Ventures%2C%20saya%20ingin%20berkonsultasi." target="_blank" rel="noopener noreferrer">
+            Hubungi via WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container footer-row">
+    <div>© <span id="year"></span> AP Digital Ventures.</div>
+    <div>Palembang, Sumatera Selatan, Indonesia</div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
